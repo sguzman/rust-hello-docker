@@ -12,10 +12,9 @@ RUN cargo build-deps --release
 
 ADD src src
 
-ARG name=weighted-consumer
-RUN cargo build --package $name --bin $name --verbose --jobs 2 --all-features --release --target=x86_64-unknown-linux-musl --color always
+RUN cargo build --package rust-hello-docker --bin hello --verbose --jobs 2 --all-features --release --target=x86_64-unknown-linux-musl --color always
 
 FROM scratch
-COPY --from=base /root/app/target/x86_64-unknown-linux-musl/release/weighted-consumer /main
+COPY --from=base /root/app/target/x86_64-unknown-linux-musl/release/hello /main
 
 ENTRYPOINT ["/main"]
