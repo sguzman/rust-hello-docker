@@ -1,5 +1,5 @@
 [package]
-name = "rust-hello"
+name = "rust-hello-docker"
 version = "0.1.0"
 authors = ["Salvador Guzman <guzmansalv@gmail.com>"]
 edition = "2018"
