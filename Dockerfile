@@ -2,7 +2,6 @@ FROM liuchong/rustup:nightly-musl AS base
 RUN mkdir app
 WORKDIR ./app
 
-COPY ./Cargo.lock ./Cargo.lock
 COPY ./Cargo.toml ./Cargo.toml
 
 ADD src src
