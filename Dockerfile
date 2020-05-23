@@ -1,13 +1,13 @@
-FROM liuchong/rustup:musl AS base
+FROM liuchong/rustup:nightly-musl AS base
 RUN mkdir app
 WORKDIR ./app
 
 COPY ./Cargo.lock ./Cargo.lock
 COPY ./Cargo.toml ./Cargo.toml
 
-RUN rustup toolchain nightly-x86_64-unknown-linux-musl
+#RUN rustup toolchain install nightly-x86_64-unknown-linux-musl
 RUN rustup target add x86_64-unknown-linux-musl
-RUN rustup default nightly-x86_64-unknown-linux-musl
+#RUN rustup default nightly-x86_64-unknown-linux-musl
 RUN cargo install cargo-build-deps --verbose --color always
 RUN cargo build-deps --release
 
